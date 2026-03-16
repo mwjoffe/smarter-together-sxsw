@@ -23,8 +23,8 @@
 8. **The Empathy Gap (Slide 22):** Added a new slide addressing the simulation of empathy vs. comprehension and Theory of Mind.
 
 ## ⚙️ Core Logic Updates
-- **Conditional Layouts:** `App.tsx` contains ID-specific logic for grid layouts. Any further slide insertions require updating the `analysis` and `grid` type conditional blocks to ensure proper column counts (especially for IDs 13, 21, 28, 29, 30, and 31).
-- **Slide Shifting:** The presentation now contains 39 slides. Slide IDs must be carefully maintained in the `slides` array to match the rendering logic.
+- **Conditional Layouts:** `App.tsx` contains ID-specific logic for grid layouts. Any further slide insertions require updating the `analysis` and `grid` type conditional blocks to ensure proper column counts (especially for IDs 13, 22, 29, 30, 31, and 32).
+- **Slide Shifting:** The presentation now contains 40 slides. Slide IDs must be carefully maintained in the `slides` array to match the rendering logic.
 
 ## 🚀 Navigation
 - **Next:** Right Arrow / Space

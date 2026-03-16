@@ -292,7 +292,7 @@ interface TableRow {
 
 interface Slide {
   id: number;
-  type: 'title' | 'facilitators' | 'story' | 'intro' | 'image-only' | 'webgl-image' | 'system-spectrum' | 'question' | 'analysis' | 'grid' | 'sprint-header' | 'framework' | 'comparison' | 'table' | 'workshop';
+  type: 'title' | 'facilitators' | 'scatter-comparison' | 'story' | 'intro' | 'image-only' | 'webgl-image' | 'system-spectrum' | 'question' | 'analysis' | 'grid' | 'sprint-header' | 'framework' | 'comparison' | 'table' | 'workshop';
   title?: string;
   subtitle?: string;
   tag?: string;
@@ -306,6 +306,7 @@ interface Slide {
   situation?: string | React.ReactNode;
   task?: string | React.ReactNode;
   questions?: string[];
+  data?: any[];
   rows?: TableRow[];
   sprint?: string;
   question?: string;
@@ -359,62 +360,81 @@ const slides: Slide[] = [
     { label: 'Arousal', desc: 'Intensity: High Energy vs. Low Energy.' },
     { label: 'Control', desc: 'Hierarchy: Dominance vs. Submission.' }
   ]},
-  { id: 21, type: 'grid', title: 'Multimodal AI', subtitle: 'Combining Signals for Accuracy', items: [
+  { id: 21, type: 'scatter-comparison', title: 'Cultural Differences of Emotion', subtitle: 'Valence & Arousal: US vs. Saudi Arabia', data: [
+    { emotion: 'anger', val_US: 11.2, val_KSA: 14.2, aro_US: 55.4, aro_KSA: 44.1 },
+    { emotion: 'calm', val_US: 80.0, val_KSA: 73.1, aro_US: 17.4, aro_KSA: 19.5 },
+    { emotion: 'death', val_US: 35.5, val_KSA: 23.2, aro_US: 25.6, aro_KSA: 44.8 },
+    { emotion: 'disgust', val_US: 6.9, val_KSA: 13.3, aro_US: 56.1, aro_KSA: 41.0 },
+    { emotion: 'excited', val_US: 79.6, val_KSA: 66.5, aro_US: 84.8, aro_KSA: 71.0 },
+    { emotion: 'fear', val_US: 13.5, val_KSA: 19.1, aro_US: 71.2, aro_KSA: 47.6 },
+    { emotion: 'fun', val_US: 80.6, val_KSA: 76.6, aro_US: 71.8, aro_KSA: 73.5 },
+    { emotion: 'happy', val_US: 87.4, val_KSA: 85.4, aro_US: 52.9, aro_KSA: 72.2 },
+    { emotion: 'horror', val_US: 1.2, val_KSA: 16.4, aro_US: 66.3, aro_KSA: 53.1 },
+    { emotion: 'joy', val_US: 87.0, val_KSA: 84.2, aro_US: 59.8, aro_KSA: 65.7 },
+    { emotion: 'love', val_US: 81.8, val_KSA: 82.0, aro_US: 39.2, aro_KSA: 49.8 },
+    { emotion: 'nature', val_US: 81.6, val_KSA: 76.9, aro_US: 22.2, aro_KSA: 30.3 },
+    { emotion: 'none', val_US: 52.0, val_KSA: 50.0, aro_US: 41.2, aro_KSA: 48.4 },
+    { emotion: 'panic', val_US: 2.8, val_KSA: 12.0, aro_US: 80.5, aro_KSA: 47.0 },
+    { emotion: 'pity', val_US: 14.3, val_KSA: 23.3, aro_US: 21.9, aro_KSA: 21.9 },
+    { emotion: 'sadness', val_US: 21.3, val_KSA: 26.8, aro_US: 43.8, aro_KSA: 30.4 },
+    { emotion: 'violence', val_US: 23.5, val_KSA: 25.6, aro_US: 63.5, aro_KSA: 59.6 }
+  ] },
+  { id: 22, type: 'grid', title: 'Multimodal AI', subtitle: 'Combining Signals for Accuracy', items: [
     { title: 'Face', desc: 'Micro-expressions (CNNs)' },
     { title: 'Voice', desc: 'Prosody (Pitch, Tone, Speed)' },
     { title: 'Body', desc: 'Posture, HRV and Skin Conductance' }
   ]},
-  { id: 22, type: 'analysis', title: 'SMARTER TOGETHER 2026', subtitle: 'The Empathy Gap', items: [
+  { id: 23, type: 'analysis', title: 'SMARTER TOGETHER 2026', subtitle: 'The Empathy Gap', items: [
     { label: 'Simulation vs. Comprehension', desc: 'AI detects patterns, not feelings. It has no subjective experience. It simulates empathy without comprehension.' },
     { label: 'Theory of Mind', desc: 'AI struggles to model why you feel a certain way or understand false beliefs (The Sally-Anne Test).' }
   ]},
-  { id: 23, type: 'framework', title: 'Emotional Design', subtitle: 'Don Norman Framework', items: [
+  { id: 24, type: 'framework', title: 'Emotional Design', subtitle: 'Don Norman Framework', items: [
     { label: 'Visceral', desc: 'Does it look friendly and inviting?' },
     { label: 'Behavioral', desc: 'Does it respond appropriately to user input?' },
     { label: 'Reflective', desc: 'How does the user feel after the interaction?' }
   ]},
-  { id: 24, type: 'workshop', title: 'Emotional Design Sprint', case: 'Personal Wellness Coach', situation: 'You are on the product team for a new AI-powered mobile app designed to be a “mindfulness coach” for young adults dealing with everyday stress and anxiety. The app provides guided meditations, journaling prompts, and cognitive behavioral therapy (CBT) exercises.', task: 'Create the Persona: Brainstorm a core personality for the app’s AI assistant. Give it a name, choose an archetype (e.g. “The Guide”, “The Companion”), and list three defining adjectives. Then, design an emotional interaction for a user who is struggling with motivation.', questions: ['Emotional Diagnosis: How to interpret the users’ emotional responses?', 'Empathy Layer: How to make the user feel recognized in a human-like manner?', 'Guardrail Layer: What are the risks of emotional intelligence and how to build guardrails?'] },
-  { id: 25, type: 'sprint-header', sprint: '03', title: 'Trust', subtitle: 'Building Reliable & Meaningful Connections' },
-  { id: 26, type: 'image-only', image: `${basePath}/Air canada.jpg` },
-  { id: 27, type: 'story', title: 'The Air Canada Lesson', text: 'In Moffatt v. Air Canada, the court rejected the idea of an "independent" bot.', tag: 'TRUST & AUTOMATION' },
-  { id: 28, type: 'grid', title: 'Trust is Efficient Prediction', subtitle: 'Types of Trust', items: [
+  { id: 25, type: 'workshop', title: 'Emotional Design Sprint', case: 'Personal Wellness Coach', situation: 'You are on the product team for a new AI-powered mobile app designed to be a “mindfulness coach” for young adults dealing with everyday stress and anxiety. The app provides guided meditations, journaling prompts, and cognitive behavioral therapy (CBT) exercises.', task: 'Create the Persona: Brainstorm a core personality for the app’s AI assistant. Give it a name, choose an archetype (e.g. “The Guide”, “The Companion”), and list three defining adjectives. Then, design an emotional interaction for a user who is struggling with motivation.', questions: ['Emotional Diagnosis: How to interpret the users’ emotional responses?', 'Empathy Layer: How to make the user feel recognized in a human-like manner?', 'Guardrail Layer: What are the risks of emotional intelligence and how to build guardrails?'] },
+  { id: 26, type: 'sprint-header', sprint: '03', title: 'Trust', subtitle: 'Building Reliable & Meaningful Connections' },
+  { id: 27, type: 'image-only', image: `${basePath}/Air canada.jpg` },
+  { id: 28, type: 'story', title: 'The Air Canada Lesson', text: 'In Moffatt v. Air Canada, the court rejected the idea of an "independent" bot.', tag: 'TRUST & AUTOMATION' },
+  { id: 29, type: 'grid', title: 'Trust is Efficient Prediction', subtitle: 'Types of Trust', items: [
     { title: 'Contractual Trust', desc: 'Reliability and rules. A logical calculation of performance and consistent behavior over time.' },
     { title: 'Interpersonal Trust', desc: 'Emotion and relationship. We mistakenly anthropomorphize reliable systems.' },
     { title: 'Trust (The User)', desc: 'Trust is situated with the user. It is a psychological state and willingness to be vulnerable.' },
     { title: 'Trustworthiness (The AI)', desc: 'A characteristic of the system itself. Its actual ability to perform reliably and safely.' }
   ]},
-  { id: 29, type: 'grid', title: 'WE TREAT AI AS A SOCIAL ACTOR', subtitle: 'We Treat AI as a Social Actor', items: [
+  { id: 30, type: 'grid', title: 'WE TREAT AI AS A SOCIAL ACTOR', subtitle: 'We Treat AI as a Social Actor', items: [
     { title: 'CASA', desc: 'Computers are Social Actors. We apply human social rules to tech automatically.' },
     { title: 'Anthropomorphism', desc: 'We project intent and personality onto systems that show "competence" or "care".' },
     { title: 'Cognitive Fluency', desc: 'Natural language and "human-like" responses bypass our logical skepticism.' },
     { title: 'Neurobiology', desc: 'Our brains process digital social cues using the same pathways as human interaction.' }
   ]},
-  { id: 30, type: 'framework', title: 'THE MICROMOMENTS OF TRUST', subtitle: 'Building Confidence Across the User Journey', items: [
+  { id: 31, type: 'framework', title: 'THE MICROMOMENTS OF TRUST', subtitle: 'Building Confidence Across the User Journey', items: [
     { label: 'Upfront', desc: 'Make it clear what the system can do and how it can do it.' },
     { label: 'During', desc: 'Explaining decisions and offering appropriate context.' },
     { label: 'Overtime', desc: 'Learn from behavior and provide global controls for the user.' }
   ]},
-  { id: 31, type: 'analysis', title: 'Why We Reject Superior Help', subtitle: 'Algorithm Aversion', items: [
+  { id: 32, type: 'analysis', title: 'Why We Reject Superior Help', subtitle: 'Algorithm Aversion', items: [
     { label: 'The Conflict', desc: 'Doctors paired with AI often perform worse than AI alone.' },
     { label: 'The Breakdown', desc: 'We lose confidence in algorithms faster than humans after a single error.' },
     { label: 'The Fix', desc: 'Trust Calibration: Designing for appropriate levels of reliance.' }
   ]},
-  { id: 32, type: 'workshop', title: 'Trust Design Sprint', case: 'AI Robo Advisor', situation: <>An AI-powered “robo-advisor” analyzes the market and gives users investment recommendations. Consider two different users:<br /><br /><b>User A (The Skeptic):</b> An experienced investor who ignores the AI’s data-driven advice to sell a declining stock, trusting their “gut feeling.” (Algorithm Aversion).<br /><br /><b>User B (The Believer):</b> A novice investor who accepts the AI’s advice to put their life savings into a high-risk fund without a second thought (Over-reliance).</>, task: 'Design a "Calibration" Intervention: Propose one transparent, agency-respecting AI feature for both users (e.g., An "Explain the Risk" button showing the recommendation, confidence, data, and a critical prompt).', questions: ['Diagnose Psychological Risk: State each user\'s main psychological risk in one sentence.', 'Calibration & Outcome: How does the feature help the skeptic accept data while encouraging the believer to think critically?'] },
-  { id: 33, type: 'sprint-header', sprint: '04', title: 'Culture', subtitle: 'Accounting for Global Context' },
-  { id: 34, type: 'comparison', title: 'The Stories We Tell', subtitle: 'Cultural Narratives of AI', items: [
+  { id: 33, type: 'workshop', title: 'Trust Design Sprint', case: 'AI Robo Advisor', situation: <>An AI-powered “robo-advisor” analyzes the market and gives users investment recommendations. Consider two different users:<br /><br /><b>User A (The Skeptic):</b> An experienced investor who ignores the AI’s data-driven advice to sell a declining stock, trusting their “gut feeling.” (Algorithm Aversion).<br /><br /><b>User B (The Believer):</b> A novice investor who accepts the AI’s advice to put their life savings into a high-risk fund without a second thought (Over-reliance).</>, task: 'Design a "Calibration" Intervention: Propose one transparent, agency-respecting AI feature for both users (e.g., An "Explain the Risk" button showing the recommendation, confidence, data, and a critical prompt).', questions: ['Diagnose Psychological Risk: State each user\'s main psychological risk in one sentence.', 'Calibration & Outcome: How does the feature help the skeptic accept data while encouraging the believer to think critically?'] },
+  { id: 34, type: 'sprint-header', sprint: '04', title: 'Culture', subtitle: 'Accounting for Global Context' },
+  { id: 35, type: 'comparison', title: 'The Stories We Tell', subtitle: 'Cultural Narratives of AI', items: [
     { label: 'The West (Terminator)', desc: 'AI is an apocalyptic threat. A "cold, Germanic cyborg" to be feared.' },
     { label: 'The East (Transformers)', desc: 'AI is a helper, a protector, a soulful companion (Animism).' }
   ]},
-  { id: 35, type: 'framework', title: 'Who Are You Building For?', subtitle: 'Is AI WEIRD?', items: [
+  { id: 36, type: 'framework', title: 'Who Are You Building For?', subtitle: 'Is AI WEIRD?', items: [
     { label: '88% Non-WEIRD', desc: 'The vast majority of data comes from Western, Educated, Industrialized, Rich contexts.' },
     { label: 'Value Bias', desc: 'LLMs exhibit values resembling "English-speaking Protestant Europe".' },
     { label: 'Cultural Fit', desc: 'Safety gaps: AI trained on Western norms fails in local contexts.' }
   ]},
-  { id: 36, type: 'comparison', title: 'When Silence Speaks', subtitle: 'Edward Hall Framework', items: [
+  { id: 37, type: 'comparison', title: 'When Silence Speaks', subtitle: 'Edward Hall Framework', items: [
     { label: 'Low Context (US/Germany)', desc: 'Meaning is explicit. "Say what you mean."' },
     { label: 'High Context (Japan/LatAm)', desc: 'Meaning is implicit. Tone, gesture, and silence carry the weight.' }
   ]},
-  { id: 37, type: 'table', title: 'Global Excitement Split', subtitle: 'Ipsos AI Monitor, 2025: "Products and services using AI make me excited"', rows: [
+  { id: 38, type: 'table', title: 'Global Excitement Split', subtitle: 'Ipsos AI Monitor, 2025: "Products and services using AI make me excited"', rows: [
     { country: 'Indonesia', agree: '80%', notSure: '4%', disagree: '16%' },
     { country: 'Thailand', agree: '79%', notSure: '7%', disagree: '14%' },
     { country: 'Malaysia', agree: '77%', notSure: '6%', disagree: '17%' },
@@ -446,8 +466,8 @@ const slides: Slide[] = [
     { country: 'Belgium', agree: '32%', notSure: '9%', disagree: '59%' },
     { country: 'Canada', agree: '31%', notSure: '11%', disagree: '58%' }
   ]},
-  { id: 38, type: 'workshop', title: 'Culture Sprint', case: 'Global Productivity App', situation: <>A California-based tech company has launched a popular AI productivity app in the United States. Its success was driven by features that gamify individual performance and track personal metrics. However, a recent launch in Japan is failing – users try it once and then quickly churn.</>, task: <><b>The Challenge:</b> Use cultural frameworks (Hofstede/Hall) to diagnose the failure and redesign the experience for the Japanese market.</>, questions: ['Hypothesis: Why is the US success failing in Japan? (Consider collectivism vs. individualism).', 'Stakeholders: Identify 3 Japanese groups needed to test this (e.g. evaluating managers vs. tenured employees).', 'Killer Question: What single strategic question must your research answer to guide a redesign?'] },
-  { id: 39, type: 'title', title: 'THANK YOU', subtitle: 'Continue the Conversation', tag: 'WWW.SMARTERTOGETHERAI.COM' }
+  { id: 39, type: 'workshop', title: 'Culture Sprint', case: 'Global Productivity App', situation: <>A California-based tech company has launched a popular AI productivity app in the United States. Its success was driven by features that gamify individual performance and track personal metrics. However, a recent launch in Japan is failing – users try it once and then quickly churn.</>, task: <><b>The Challenge:</b> Use cultural frameworks (Hofstede/Hall) to diagnose the failure and redesign the experience for the Japanese market.</>, questions: ['Hypothesis: Why is the US success failing in Japan? (Consider collectivism vs. individualism).', 'Stakeholders: Identify 3 Japanese groups needed to test this (e.g. evaluating managers vs. tenured employees).', 'Killer Question: What single strategic question must your research answer to guide a redesign?'] },
+  { id: 40, type: 'title', title: 'THANK YOU', subtitle: 'Continue the Conversation', tag: 'WWW.SMARTERTOGETHERAI.COM' }
 ]
 
 export default function App() {
@@ -830,7 +850,7 @@ export default function App() {
                 </div>
               </div>
             ) : (
-              <div style={{ ...styles.grid, gridTemplateColumns: (slide.id === 13 || slide.id === 29 || slide.id === 30 || slide.id === 31) ? 'repeat(3, 1fr)' : 'repeat(auto-fit, minmax(450px, 1fr))' } as any}>
+              <div style={{ ...styles.grid, gridTemplateColumns: (slide.id === 13 || slide.id === 30 || slide.id === 31 || slide.id === 32) ? 'repeat(3, 1fr)' : 'repeat(auto-fit, minmax(450px, 1fr))' } as any}>
                 {slide.items?.map((item: any) => (
                   <div key={item.label} style={{ ...styles.card, display: 'flex', gap: '30px', minWidth: 0 } as any}>
                     <div style={{ fontWeight: '900', color: brandPrimary, fontSize: '18px' }}>+</div>
@@ -845,11 +865,104 @@ export default function App() {
           </div>
         )}
 
+
+        {slide.type === 'scatter-comparison' && (
+          <div style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
+            <div style={{ ...styles.tag, textAlign: 'left', marginBottom: '10px' } as any}>{slide.title}</div>
+            <h2 style={{ ...styles.h2, fontSize: '2.5rem', marginBottom: '40px' } as any}>{slide.subtitle}</h2>
+            
+            <div style={{ display: 'flex', gap: '40px', flex: 1 }}>
+              {/* US Graph */}
+              <div style={{ flex: 1, background: 'rgba(255,255,255,0.03)', borderRadius: '24px', border: '1px solid rgba(255,255,255,0.05)', padding: '20px', position: 'relative', display: 'flex', flexDirection: 'column' }}>
+                <div style={{ textAlign: 'center', fontWeight: 'bold', letterSpacing: '2px', color: brandSecondary, marginBottom: '20px' }}>UNITED STATES</div>
+                <div style={{ flex: 1, position: 'relative' }}>
+                  <svg width="100%" height="100%" viewBox="-20 -10 140 120" style={{ overflow: 'visible' }}>
+                    {/* Background Grid Lines & Scale Labels */}
+                    {[0, 20, 40, 60, 80, 100].map(val => (
+                      <g key={`grid-x-${val}`}>
+                        <line x1={val} y1="0" x2={val} y2="100" stroke="rgba(255,255,255,0.05)" strokeWidth="0.5" />
+                        <text x={val} y="105" fill="rgba(255,255,255,0.3)" fontSize="3" textAnchor="middle">{val}</text>
+                      </g>
+                    ))}
+                    {[0, 20, 40, 60, 80, 100].map(val => (
+                      <g key={`grid-y-${val}`}>
+                        <line x1="0" y1={100 - val} x2="100" y2={100 - val} stroke="rgba(255,255,255,0.05)" strokeWidth="0.5" />
+                        <text x="-2" y={100 - val + 1} fill="rgba(255,255,255,0.3)" fontSize="3" textAnchor="end">{val}</text>
+                      </g>
+                    ))}
+                    <line x1="50" y1="0" x2="50" y2="100" stroke="rgba(255,255,255,0.2)" strokeWidth="0.5" strokeDasharray="2 2" />
+                    <line x1="0" y1="50" x2="100" y2="50" stroke="rgba(255,255,255,0.2)" strokeWidth="0.5" strokeDasharray="2 2" />
+                    <text x="50" y="-5" fill="rgba(255,255,255,0.5)" fontSize="4" textAnchor="middle">High Arousal</text>
+                    <text x="50" y="112" fill="rgba(255,255,255,0.5)" fontSize="4" textAnchor="middle">Low Arousal</text>
+                    <text x="-15" y="51" fill="rgba(255,255,255,0.5)" fontSize="4" textAnchor="start">Neg Valence</text>
+                    <text x="115" y="51" fill="rgba(255,255,255,0.5)" fontSize="4" textAnchor="end">Pos Valence</text>
+                    {slide.data?.map((d, i) => {
+                      const isHappy = d.emotion === 'happy';
+                      const yOffset = isHappy ? 4 : (i % 2 === 0 ? 2 : -3);
+                      return (
+                        <g key={i}>
+                          <motion.circle initial={{ opacity: 0, r: 0 }} animate={{ opacity: isHappy ? 1 : 0.4, r: isHappy ? 3 : 1.5 }} transition={{ delay: i * 0.05, duration: 0.5 }} cx={d.val_US} cy={100 - d.aro_US} fill={isHappy ? '#fff' : brandSecondary} />
+                          <motion.text initial={{ opacity: 0 }} animate={{ opacity: isHappy ? 1 : 0.5 }} transition={{ delay: i * 0.05 + 0.2 }} x={d.val_US} y={100 - d.aro_US - yOffset} fill={isHappy ? '#fff' : 'rgba(255,255,255,0.7)'} fontSize={isHappy ? "4.5" : "2.5"} fontWeight={isHappy ? "bold" : "normal"} textAnchor="middle">{d.emotion}</motion.text>
+                        </g>
+                      );
+                    })}
+                  </svg>
+                </div>
+              </div>
+
+              {/* Saudi Arabia Graph */}
+              <div style={{ flex: 1, background: 'rgba(255,255,255,0.03)', borderRadius: '24px', border: '1px solid rgba(255,255,255,0.05)', padding: '20px', position: 'relative', display: 'flex', flexDirection: 'column' }}>
+                <div style={{ textAlign: 'center', fontWeight: 'bold', letterSpacing: '2px', color: brandPrimary, marginBottom: '20px' }}>SAUDI ARABIA</div>
+                <div style={{ flex: 1, position: 'relative' }}>
+                  <svg width="100%" height="100%" viewBox="-20 -10 140 120" style={{ overflow: 'visible' }}>
+                    {/* Background Grid Lines & Scale Labels */}
+                    {[0, 20, 40, 60, 80, 100].map(val => (
+                      <g key={`grid-x-${val}`}>
+                        <line x1={val} y1="0" x2={val} y2="100" stroke="rgba(255,255,255,0.05)" strokeWidth="0.5" />
+                        <text x={val} y="105" fill="rgba(255,255,255,0.3)" fontSize="3" textAnchor="middle">{val}</text>
+                      </g>
+                    ))}
+                    {[0, 20, 40, 60, 80, 100].map(val => (
+                      <g key={`grid-y-${val}`}>
+                        <line x1="0" y1={100 - val} x2="100" y2={100 - val} stroke="rgba(255,255,255,0.05)" strokeWidth="0.5" />
+                        <text x="-2" y={100 - val + 1} fill="rgba(255,255,255,0.3)" fontSize="3" textAnchor="end">{val}</text>
+                      </g>
+                    ))}
+                    {/* Central Axes */}
+                    <line x1="50" y1="0" x2="50" y2="100" stroke="rgba(255,255,255,0.2)" strokeWidth="0.5" strokeDasharray="2 2" />
+                    <line x1="0" y1="50" x2="100" y2="50" stroke="rgba(255,255,255,0.2)" strokeWidth="0.5" strokeDasharray="2 2" />
+                    {/* Axis Labels */}
+                    <text x="50" y="-5" fill="rgba(255,255,255,0.5)" fontSize="4" textAnchor="middle">High Arousal</text>
+                    <text x="50" y="112" fill="rgba(255,255,255,0.5)" fontSize="4" textAnchor="middle">Low Arousal</text>
+                    <text x="-15" y="51" fill="rgba(255,255,255,0.5)" fontSize="4" textAnchor="start">Neg Valence</text>
+                    <text x="115" y="51" fill="rgba(255,255,255,0.5)" fontSize="4" textAnchor="end">Pos Valence</text>
+                    {slide.data?.map((d, i) => {
+                      const isHappy = d.emotion === 'happy';
+                      const yOffset = isHappy ? 4 : (i % 2 === 0 ? 2 : -3);
+                      return (
+                        <g key={i}>
+                          <motion.circle initial={{ opacity: 0, r: 0 }} animate={{ opacity: isHappy ? 1 : 0.4, r: isHappy ? 3 : 1.5 }} transition={{ delay: i * 0.05, duration: 0.5 }} cx={d.val_KSA} cy={100 - d.aro_KSA} fill={isHappy ? '#fff' : brandPrimary} />
+                          <motion.text initial={{ opacity: 0 }} animate={{ opacity: isHappy ? 1 : 0.5 }} transition={{ delay: i * 0.05 + 0.2 }} x={d.val_KSA} y={100 - d.aro_KSA - yOffset} fill={isHappy ? '#fff' : 'rgba(255,255,255,0.7)'} fontSize={isHappy ? "4.5" : "2.5"} fontWeight={isHappy ? "bold" : "normal"} textAnchor="middle">{d.emotion}</motion.text>
+                        </g>
+                      );
+                    })}
+                  </svg>
+                </div>
+              </div>
+            </div>
+            
+            <div style={{ marginTop: '20px', padding: '15px 25px', background: 'rgba(255,255,255,0.05)', borderRadius: '15px', border: '1px solid rgba(255,255,255,0.1)', fontSize: '14px', lineHeight: '1.5', color: 'rgba(255,255,255,0.8)' }}>
+              <b>Insight:</b> While both cultures view <i>"happy"</i> as highly positive (Valence), Saudi Arabia associates it with significantly higher energy and intensity (Arousal) than the United States.
+            </div>
+          </div>
+        )}
+
+
         {slide.type === 'grid' && (
           <div>
             <div style={{ ...styles.tag, textAlign: 'left' } as any}>{slide.title}</div>
             <h2 style={styles.h2 as any}>{slide.subtitle}</h2>
-            {slide.id === 28 ? (
+            {slide.id === 29 ? (
               <div style={{ display: 'flex', flexDirection: 'column', gap: '30px', marginTop: '40px' }}>
                 <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '30px' }}>
                   {slide.items?.slice(0, 2).map((item: any) => (
@@ -881,7 +994,7 @@ export default function App() {
                 </div>
               </div>
             ) : (
-              <div style={{ ...styles.grid, gridTemplateColumns: slide.id === 21 ? 'repeat(3, 1fr)' : '1fr 1fr' } as any}>
+              <div style={{ ...styles.grid, gridTemplateColumns: slide.id === 22 ? 'repeat(3, 1fr)' : '1fr 1fr' } as any}>
                 {slide.items?.map((item: any) => (
                   <div key={item.title} style={styles.card as any}>
                     <div style={{ fontWeight: '800', fontSize: '22px', marginBottom: '15px', color: brandPrimary }}>{item.title}</div>
