@@ -339,73 +339,82 @@ const slides: Slide[] = [
   { id: 10, type: 'image-only', images: [`${basePath}/phiineas 1.jpg`, `${basePath}/Phineas 2.jpg`] },
   { id: 11, type: 'image-only', image: `${basePath}/Muhammad-Yunus.jpg` },
   { id: 12, type: 'system-spectrum', title: 'The Spectrum of Thought', subtitle: 'Between Intuition and Deliberation' },
-  { id: 13, type: 'framework', title: 'When to Hand the Keys Back', subtitle: 'Adapted from Amershi et al., 2019', items: [
+  { id: 13, type: 'analysis', title: 'SMARTER TOGETHER 2026', subtitle: 'The Cost of Seamless Automation', items: [
+    { label: 'Friction as a Feature', desc: 'Well-designed human–AI systems introduce positive cognitive friction at the right moments to slow down thinking and improve judgment.' },
+    { label: 'Cognitive Conflict', desc: 'When people encounter conflicting signals or uncertainty, the brain slows automatic processing and recruits deliberative reasoning.' },
+    { label: 'Design Strategy', desc: 'Low-stakes tasks → minimize friction. High-stakes decisions → introduce productive friction.' }
+  ]},
+  { id: 14, type: 'framework', title: 'When to Hand the Keys Back', subtitle: 'Adapted from Amershi et al., 2019', items: [
     { label: 'Initially', desc: 'Make it clear what the system can do and how it can do it.' },
     { label: 'During', desc: 'Show contextually relevant information relevant to the user’s current task.' },
     { label: 'When Wrong', desc: 'Enable the user to access an explanation of why the system behaved as it did.' }
   ]},
-  { id: 14, type: 'workshop', title: 'Decision Making Sprint', case: 'Patient Triage Product', situation: 'A design team working on a product that supports healthcare workers with patient discharge. Pilot trial: 94% success, reduced patient stays by 18%. Hospital administrators want a full launch, but senior doctors fear the tool will remove their agency and lead to patient harm.', task: 'Design one feature that augments doctor decision making rather than overriding it. Describe the feature and your rollout strategy.', questions: ['Who are the stakeholders? What do they care about?', 'What risks and cognitive biases (e.g. over-reliance) are involved?', 'In what conditions should the physician override? How would you design for this?'] },
-  { id: 15, type: 'sprint-header', sprint: '02', title: 'Emotion', subtitle: 'Designing for Human Emotional Context' },
-  { id: 16, type: 'question', question: '“Can AI Be Emotionally Intelligent?”' },
-  { id: 17, type: 'image-only', image: `${basePath}/Ibn Sina.jpg` },
-  { id: 18, type: 'story', title: '1,000 Years Ago', text: '1,000 years ago, Ibn Sina diagnosed "lovesickness" by monitoring a pulse while reciting village names.', tag: 'EMOTION AI ORIGINS', image: `${basePath}/avatars/Ibn Sina.jpg` },
-  { id: 19, type: 'analysis', title: 'Beyond "Happy" and "Sad"', subtitle: 'The 3D Spectrum (VAC Model)', items: [
+  { id: 15, type: 'workshop', title: 'Decision Making Sprint', case: 'Patient Triage Product', situation: 'A design team working on a product that supports healthcare workers with patient discharge. Pilot trial: 94% success, reduced patient stays by 18%. Hospital administrators want a full launch, but senior doctors fear the tool will remove their agency and lead to patient harm.', task: 'Design one feature that augments doctor decision making rather than overriding it. Describe the feature and your rollout strategy.', questions: ['Who are the stakeholders? What do they care about?', 'What risks and cognitive biases (e.g. over-reliance) are involved?', 'In what conditions should the physician override? How would you design for this?'] },
+  { id: 16, type: 'sprint-header', sprint: '02', title: 'Emotion', subtitle: 'Designing for Human Emotional Context' },
+  { id: 17, type: 'question', question: '“Can AI Be Emotionally Intelligent?”' },
+  { id: 18, type: 'image-only', image: `${basePath}/Ibn Sina.jpg` },
+  { id: 19, type: 'story', title: '1,000 Years Ago', text: '1,000 years ago, Ibn Sina diagnosed "lovesickness" by monitoring a pulse while reciting village names.', tag: 'EMOTION AI ORIGINS', image: `${basePath}/avatars/Ibn Sina.jpg` },
+  { id: 20, type: 'analysis', title: 'Beyond "Happy" and "Sad"', subtitle: 'The 3D Spectrum (VAC Model)', items: [
     { label: 'Valence', desc: 'Positive vs. Negative experience.' },
     { label: 'Arousal', desc: 'Intensity: High Energy vs. Low Energy.' },
     { label: 'Control', desc: 'Hierarchy: Dominance vs. Submission.' }
   ]},
-  { id: 20, type: 'grid', title: 'Multimodal AI', subtitle: 'Combining Signals for Accuracy', items: [
+  { id: 21, type: 'grid', title: 'Multimodal AI', subtitle: 'Combining Signals for Accuracy', items: [
     { title: 'Face', desc: 'Micro-expressions (CNNs)' },
     { title: 'Voice', desc: 'Prosody (Pitch, Tone, Speed)' },
     { title: 'Body', desc: 'Posture, HRV and Skin Conductance' }
   ]},
-  { id: 21, type: 'framework', title: 'Emotional Design', subtitle: 'Don Norman Framework', items: [
+  { id: 22, type: 'analysis', title: 'SMARTER TOGETHER 2026', subtitle: 'The Empathy Gap', items: [
+    { label: 'Simulation vs. Comprehension', desc: 'AI detects patterns, not feelings. It has no subjective experience. It simulates empathy without comprehension.' },
+    { label: 'Theory of Mind', desc: 'AI struggles to model why you feel a certain way or understand false beliefs (The Sally-Anne Test).' }
+  ]},
+  { id: 23, type: 'framework', title: 'Emotional Design', subtitle: 'Don Norman Framework', items: [
     { label: 'Visceral', desc: 'Does it look friendly and inviting?' },
     { label: 'Behavioral', desc: 'Does it respond appropriately to user input?' },
     { label: 'Reflective', desc: 'How does the user feel after the interaction?' }
   ]},
-  { id: 22, type: 'workshop', title: 'Emotional Design Sprint', case: 'Personal Wellness Coach', situation: 'You are on the product team for a new AI-powered mobile app designed to be a “mindfulness coach” for young adults dealing with everyday stress and anxiety. The app provides guided meditations, journaling prompts, and cognitive behavioral therapy (CBT) exercises.', task: 'Create the Persona: Brainstorm a core personality for the app’s AI assistant. Give it a name, choose an archetype (e.g. “The Guide”, “The Companion”), and list three defining adjectives. Then, design an emotional interaction for a user who is struggling with motivation.', questions: ['Emotional Diagnosis: How to interpret the users’ emotional responses?', 'Empathy Layer: How to make the user feel recognized in a human-like manner?', 'Guardrail Layer: What are the risks of emotional intelligence and how to build guardrails?'] },
-  { id: 23, type: 'sprint-header', sprint: '03', title: 'Trust', subtitle: 'Building Reliable & Meaningful Connections' },
-  { id: 24, type: 'image-only', image: `${basePath}/Air canada.jpg` },
-  { id: 25, type: 'story', title: 'The Air Canada Lesson', text: 'In Moffatt v. Air Canada, the court rejected the idea of an "independent" bot.', tag: 'TRUST & AUTOMATION' },
-  { id: 26, type: 'grid', title: 'Trust is Efficient Prediction', subtitle: 'Types of Trust', items: [
+  { id: 24, type: 'workshop', title: 'Emotional Design Sprint', case: 'Personal Wellness Coach', situation: 'You are on the product team for a new AI-powered mobile app designed to be a “mindfulness coach” for young adults dealing with everyday stress and anxiety. The app provides guided meditations, journaling prompts, and cognitive behavioral therapy (CBT) exercises.', task: 'Create the Persona: Brainstorm a core personality for the app’s AI assistant. Give it a name, choose an archetype (e.g. “The Guide”, “The Companion”), and list three defining adjectives. Then, design an emotional interaction for a user who is struggling with motivation.', questions: ['Emotional Diagnosis: How to interpret the users’ emotional responses?', 'Empathy Layer: How to make the user feel recognized in a human-like manner?', 'Guardrail Layer: What are the risks of emotional intelligence and how to build guardrails?'] },
+  { id: 25, type: 'sprint-header', sprint: '03', title: 'Trust', subtitle: 'Building Reliable & Meaningful Connections' },
+  { id: 26, type: 'image-only', image: `${basePath}/Air canada.jpg` },
+  { id: 27, type: 'story', title: 'The Air Canada Lesson', text: 'In Moffatt v. Air Canada, the court rejected the idea of an "independent" bot.', tag: 'TRUST & AUTOMATION' },
+  { id: 28, type: 'grid', title: 'Trust is Efficient Prediction', subtitle: 'Types of Trust', items: [
     { title: 'Contractual Trust', desc: 'Reliability and rules. A logical calculation of performance and consistent behavior over time.' },
     { title: 'Interpersonal Trust', desc: 'Emotion and relationship. We mistakenly anthropomorphize reliable systems.' },
     { title: 'Trust (The User)', desc: 'Trust is situated with the user. It is a psychological state and willingness to be vulnerable.' },
     { title: 'Trustworthiness (The AI)', desc: 'A characteristic of the system itself. Its actual ability to perform reliably and safely.' }
   ]},
-  { id: 27, type: 'grid', title: 'WE TREAT AI AS A SOCIAL ACTOR', subtitle: 'We Treat AI as a Social Actor', items: [
+  { id: 29, type: 'grid', title: 'WE TREAT AI AS A SOCIAL ACTOR', subtitle: 'We Treat AI as a Social Actor', items: [
     { title: 'CASA', desc: 'Computers are Social Actors. We apply human social rules to tech automatically.' },
     { title: 'Anthropomorphism', desc: 'We project intent and personality onto systems that show "competence" or "care".' },
     { title: 'Cognitive Fluency', desc: 'Natural language and "human-like" responses bypass our logical skepticism.' },
     { title: 'Neurobiology', desc: 'Our brains process digital social cues using the same pathways as human interaction.' }
   ]},
-  { id: 28, type: 'framework', title: 'THE MICROMOMENTS OF TRUST', subtitle: 'Building Confidence Across the User Journey', items: [
+  { id: 30, type: 'framework', title: 'THE MICROMOMENTS OF TRUST', subtitle: 'Building Confidence Across the User Journey', items: [
     { label: 'Upfront', desc: 'Make it clear what the system can do and how it can do it.' },
     { label: 'During', desc: 'Explaining decisions and offering appropriate context.' },
     { label: 'Overtime', desc: 'Learn from behavior and provide global controls for the user.' }
   ]},
-  { id: 29, type: 'analysis', title: 'Why We Reject Superior Help', subtitle: 'Algorithm Aversion', items: [
+  { id: 31, type: 'analysis', title: 'Why We Reject Superior Help', subtitle: 'Algorithm Aversion', items: [
     { label: 'The Conflict', desc: 'Doctors paired with AI often perform worse than AI alone.' },
     { label: 'The Breakdown', desc: 'We lose confidence in algorithms faster than humans after a single error.' },
     { label: 'The Fix', desc: 'Trust Calibration: Designing for appropriate levels of reliance.' }
   ]},
-  { id: 30, type: 'workshop', title: 'Trust Design Sprint', case: 'AI Robo Advisor', situation: <>An AI-powered “robo-advisor” analyzes the market and gives users investment recommendations. Consider two different users:<br /><br /><b>User A (The Skeptic):</b> An experienced investor who ignores the AI’s data-driven advice to sell a declining stock, trusting their “gut feeling.” (Algorithm Aversion).<br /><br /><b>User B (The Believer):</b> A novice investor who accepts the AI’s advice to put their life savings into a high-risk fund without a second thought (Over-reliance).</>, task: 'Design a "Calibration" Intervention: Propose one transparent, agency-respecting AI feature for both users (e.g., An "Explain the Risk" button showing the recommendation, confidence, data, and a critical prompt).', questions: ['Diagnose Psychological Risk: State each user\'s main psychological risk in one sentence.', 'Calibration & Outcome: How does the feature help the skeptic accept data while encouraging the believer to think critically?'] },
-  { id: 31, type: 'sprint-header', sprint: '04', title: 'Culture', subtitle: 'Accounting for Global Context' },
-  { id: 32, type: 'comparison', title: 'The Stories We Tell', subtitle: 'Cultural Narratives of AI', items: [
+  { id: 32, type: 'workshop', title: 'Trust Design Sprint', case: 'AI Robo Advisor', situation: <>An AI-powered “robo-advisor” analyzes the market and gives users investment recommendations. Consider two different users:<br /><br /><b>User A (The Skeptic):</b> An experienced investor who ignores the AI’s data-driven advice to sell a declining stock, trusting their “gut feeling.” (Algorithm Aversion).<br /><br /><b>User B (The Believer):</b> A novice investor who accepts the AI’s advice to put their life savings into a high-risk fund without a second thought (Over-reliance).</>, task: 'Design a "Calibration" Intervention: Propose one transparent, agency-respecting AI feature for both users (e.g., An "Explain the Risk" button showing the recommendation, confidence, data, and a critical prompt).', questions: ['Diagnose Psychological Risk: State each user\'s main psychological risk in one sentence.', 'Calibration & Outcome: How does the feature help the skeptic accept data while encouraging the believer to think critically?'] },
+  { id: 33, type: 'sprint-header', sprint: '04', title: 'Culture', subtitle: 'Accounting for Global Context' },
+  { id: 34, type: 'comparison', title: 'The Stories We Tell', subtitle: 'Cultural Narratives of AI', items: [
     { label: 'The West (Terminator)', desc: 'AI is an apocalyptic threat. A "cold, Germanic cyborg" to be feared.' },
     { label: 'The East (Transformers)', desc: 'AI is a helper, a protector, a soulful companion (Animism).' }
   ]},
-  { id: 33, type: 'framework', title: 'Who Are You Building For?', subtitle: 'Is AI WEIRD?', items: [
+  { id: 35, type: 'framework', title: 'Who Are You Building For?', subtitle: 'Is AI WEIRD?', items: [
     { label: '88% Non-WEIRD', desc: 'The vast majority of data comes from Western, Educated, Industrialized, Rich contexts.' },
     { label: 'Value Bias', desc: 'LLMs exhibit values resembling "English-speaking Protestant Europe".' },
     { label: 'Cultural Fit', desc: 'Safety gaps: AI trained on Western norms fails in local contexts.' }
   ]},
-  { id: 34, type: 'comparison', title: 'When Silence Speaks', subtitle: 'Edward Hall Framework', items: [
+  { id: 36, type: 'comparison', title: 'When Silence Speaks', subtitle: 'Edward Hall Framework', items: [
     { label: 'Low Context (US/Germany)', desc: 'Meaning is explicit. "Say what you mean."' },
     { label: 'High Context (Japan/LatAm)', desc: 'Meaning is implicit. Tone, gesture, and silence carry the weight.' }
   ]},
-  { id: 35, type: 'table', title: 'Global Excitement Split', subtitle: 'Ipsos AI Monitor, 2025: "Products and services using AI make me excited"', rows: [
+  { id: 37, type: 'table', title: 'Global Excitement Split', subtitle: 'Ipsos AI Monitor, 2025: "Products and services using AI make me excited"', rows: [
     { country: 'Indonesia', agree: '80%', notSure: '4%', disagree: '16%' },
     { country: 'Thailand', agree: '79%', notSure: '7%', disagree: '14%' },
     { country: 'Malaysia', agree: '77%', notSure: '6%', disagree: '17%' },
@@ -437,8 +446,8 @@ const slides: Slide[] = [
     { country: 'Belgium', agree: '32%', notSure: '9%', disagree: '59%' },
     { country: 'Canada', agree: '31%', notSure: '11%', disagree: '58%' }
   ]},
-  { id: 36, type: 'workshop', title: 'Culture Sprint', case: 'Global Productivity App', situation: <>A California-based tech company has launched a popular AI productivity app in the United States. Its success was driven by features that gamify individual performance and track personal metrics. However, a recent launch in Japan is failing – users try it once and then quickly churn.</>, task: <><b>The Challenge:</b> Use cultural frameworks (Hofstede/Hall) to diagnose the failure and redesign the experience for the Japanese market.</>, questions: ['Hypothesis: Why is the US success failing in Japan? (Consider collectivism vs. individualism).', 'Stakeholders: Identify 3 Japanese groups needed to test this (e.g. evaluating managers vs. tenured employees).', 'Killer Question: What single strategic question must your research answer to guide a redesign?'] },
-  { id: 37, type: 'title', title: 'THANK YOU', subtitle: 'Continue the Conversation', tag: 'WWW.SMARTERTOGETHERAI.COM' }
+  { id: 38, type: 'workshop', title: 'Culture Sprint', case: 'Global Productivity App', situation: <>A California-based tech company has launched a popular AI productivity app in the United States. Its success was driven by features that gamify individual performance and track personal metrics. However, a recent launch in Japan is failing – users try it once and then quickly churn.</>, task: <><b>The Challenge:</b> Use cultural frameworks (Hofstede/Hall) to diagnose the failure and redesign the experience for the Japanese market.</>, questions: ['Hypothesis: Why is the US success failing in Japan? (Consider collectivism vs. individualism).', 'Stakeholders: Identify 3 Japanese groups needed to test this (e.g. evaluating managers vs. tenured employees).', 'Killer Question: What single strategic question must your research answer to guide a redesign?'] },
+  { id: 39, type: 'title', title: 'THANK YOU', subtitle: 'Continue the Conversation', tag: 'WWW.SMARTERTOGETHERAI.COM' }
 ]
 
 export default function App() {
@@ -751,8 +760,8 @@ export default function App() {
             <div style={{ ...styles.tag, textAlign: 'left' } as any}>{slide.title}</div>
             <h2 style={styles.h2 as any}>{slide.subtitle}</h2>
             
-            {/* Custom Interactive VAC Model Graphic for Slide 19 */}
-            {slide.id === 19 ? (
+            {/* Custom Interactive VAC Model Graphic for Slide 20 */}
+            {slide.id === 20 ? (
               <div style={{ display: 'flex', gap: '40px', marginTop: '40px', alignItems: 'center' }}>
                 <div style={{ flex: 1.2, position: 'relative', height: '500px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                   <svg width="100%" height="100%" viewBox="0 0 500 500" style={{ overflow: 'visible' }}>
@@ -821,7 +830,7 @@ export default function App() {
                 </div>
               </div>
             ) : (
-              <div style={{ ...styles.grid, gridTemplateColumns: (slide.id === 27 || slide.id === 28 || slide.id === 29) ? 'repeat(3, 1fr)' : 'repeat(auto-fit, minmax(450px, 1fr))' } as any}>
+              <div style={{ ...styles.grid, gridTemplateColumns: (slide.id === 13 || slide.id === 29 || slide.id === 30 || slide.id === 31) ? 'repeat(3, 1fr)' : 'repeat(auto-fit, minmax(450px, 1fr))' } as any}>
                 {slide.items?.map((item: any) => (
                   <div key={item.label} style={{ ...styles.card, display: 'flex', gap: '30px', minWidth: 0 } as any}>
                     <div style={{ fontWeight: '900', color: brandPrimary, fontSize: '18px' }}>+</div>
@@ -840,7 +849,7 @@ export default function App() {
           <div>
             <div style={{ ...styles.tag, textAlign: 'left' } as any}>{slide.title}</div>
             <h2 style={styles.h2 as any}>{slide.subtitle}</h2>
-            {slide.id === 26 ? (
+            {slide.id === 28 ? (
               <div style={{ display: 'flex', flexDirection: 'column', gap: '30px', marginTop: '40px' }}>
                 <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '30px' }}>
                   {slide.items?.slice(0, 2).map((item: any) => (
@@ -872,7 +881,7 @@ export default function App() {
                 </div>
               </div>
             ) : (
-              <div style={{ ...styles.grid, gridTemplateColumns: slide.id === 20 ? 'repeat(3, 1fr)' : '1fr 1fr' } as any}>
+              <div style={{ ...styles.grid, gridTemplateColumns: slide.id === 21 ? 'repeat(3, 1fr)' : '1fr 1fr' } as any}>
                 {slide.items?.map((item: any) => (
                   <div key={item.title} style={styles.card as any}>
                     <div style={{ fontWeight: '800', fontSize: '22px', marginBottom: '15px', color: brandPrimary }}>{item.title}</div>
