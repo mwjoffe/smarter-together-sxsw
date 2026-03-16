@@ -311,7 +311,7 @@ interface Slide {
   question?: string;
 }
 
-const basePath = '/smarter-together'
+const basePath = '/smarter-together-sxsw'
 
 const slides: Slide[] = [
   { id: 1, type: 'title', title: 'SMARTER TOGETHER', subtitle: 'SXSW 2026', tag: 'HOW WE THINK, FEEL, AND DECIDE WITH AI' },

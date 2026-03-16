@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://mwjoffe.github.io/smarter-together",
+  "homepage": "https://mwjoffe.github.io/smarter-together-sxsw",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
