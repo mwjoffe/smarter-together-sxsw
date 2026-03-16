@@ -281,6 +281,7 @@ interface Facilitator {
   name: string;
   role: string;
   image: string;
+  email?: string;
 }
 
 interface TableRow {
@@ -317,8 +318,8 @@ const basePath = '/smarter-together-sxsw'
 const slides: Slide[] = [
   { id: 1, type: 'title', title: 'SMARTER TOGETHER', subtitle: 'SXSW 2026', tag: 'HOW WE THINK, FEEL, AND DECIDE WITH AI' },
   { id: 2, type: 'facilitators', title: 'Meet the Facilitators', facilitators: [
-    { name: 'Michael Joffe', role: 'NYU, Psychology & AI | Marketing, Google', image: `${basePath}/avatars/Joffe headshot.jpeg` },
-    { name: 'Manuel Garcia-Garcia Phd', role: 'Global Science Lead, Ipsos', image: `${basePath}/avatars/Manuel headshot.jpeg` }
+    { name: 'Michael Joffe', role: 'NYU, Psychology & AI | Marketing, Google', email: 'mwjoffe@gmail.com', image: `${basePath}/avatars/Joffe headshot.jpeg` },
+    { name: 'Manuel Garcia-Garcia Phd', role: 'Global Science Lead, Ipsos', email: 'manuel.garcia-garcia@ipsos.com', image: `${basePath}/avatars/Manuel headshot.jpeg` }
   ]},
   { id: 3, type: 'intro', title: 'The Problem', text: 'Avoiding the Next Chicken Nugget Apocalypse', tag: 'SMARTER TOGETHER 2026', icon: '🍗' },
   { id: 4, type: 'image-only', image: `${basePath}/Mcdonalds 1.png` },
@@ -467,7 +468,7 @@ const slides: Slide[] = [
     { country: 'Canada', agree: '31%', notSure: '11%', disagree: '58%' }
   ]},
   { id: 39, type: 'workshop', title: 'Culture Sprint', case: 'Global Productivity App', situation: <>A California-based tech company has launched a popular AI productivity app in the United States. Its success was driven by features that gamify individual performance and track personal metrics. However, a recent launch in Japan is failing – users try it once and then quickly churn.</>, task: <><b>The Challenge:</b> Use cultural frameworks (Hofstede/Hall) to diagnose the failure and redesign the experience for the Japanese market.</>, questions: ['Hypothesis: Why is the US success failing in Japan? (Consider collectivism vs. individualism).', 'Stakeholders: Identify 3 Japanese groups needed to test this (e.g. evaluating managers vs. tenured employees).', 'Killer Question: What single strategic question must your research answer to guide a redesign?'] },
-  { id: 40, type: 'title', title: 'THANK YOU', subtitle: 'Continue the Conversation', tag: 'WWW.SMARTERTOGETHERAI.COM' }
+  { id: 40, type: 'title', title: 'THANK YOU', subtitle: 'mwjoffe@gmail.com • manuel.garcia-garcia@ipsos.com', tag: 'WWW.SMARTERTOGETHERAI.COM' }
 ]
 
 export default function App() {
@@ -629,7 +630,7 @@ export default function App() {
             <div style={styles.grid as any}>
               {slide.facilitators?.map((f) => (
                 <div key={f.name} style={styles.card as any}>
-                  <div style={{ marginBottom: '30px', width: '120px', height: '120px', borderRadius: '24px', overflow: 'hidden', border: `2px solid ${brandPrimary}` }}>
+                  <div style={{ marginBottom: '30px', width: '120px', height: '120px', borderRadius: '50%', overflow: 'hidden', border: `2px solid ${brandPrimary}` }}>
                     <img 
                       src={f.image} 
                       alt={f.name} 
@@ -641,7 +642,8 @@ export default function App() {
                     />
                   </div>
                   <div style={{ fontSize: '28px', fontWeight: '700', marginBottom: '10px' }}>{f.name}</div>
-                  <div style={{ fontSize: '13px', color: 'rgba(255,255,255,0.5)', textTransform: 'uppercase', letterSpacing: '1px' }}>{f.role}</div>
+                  <div style={{ fontSize: '13px', color: 'rgba(255,255,255,0.5)', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: f.email ? '10px' : '0' }}>{f.role}</div>
+                  {f.email && <div style={{ fontSize: '14px', color: brandSecondary, fontWeight: '500' }}>{f.email}</div>}
                 </div>
               ))}
             </div>
